@@ -111,22 +111,15 @@ class HomeNoOptIn extends React.Component<{}, IAppState> {
   public render() {
     return (
         <div>
-<<<<<<< HEAD
-                            {this.renderAlert()}
-                            {this.renderChoices()}
-                            {this.renderMatch()}
+            {this.renderAlert()}
+            {this.renderChoices()}
+            {this.renderMatch()}
 
-                            <Points />
-                            <Leaderboard />
-                        </div>
-
-                        );
-=======
-        <div><Points /></div>
-        <div><Badges /></div>
+            <Points />
+            <Leaderboard />
+            <Badges />
         </div>
     );
->>>>>>> master
   }
 }
 
