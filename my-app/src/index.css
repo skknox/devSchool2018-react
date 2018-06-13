@@ -2,4 +2,105 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #b6defd;
+  color: #4e4e4e;
 }
+#signUpBox2 {
+  height: 300px;
+  padding: 25px;
+  margin: 25px;
+}
+#signUpBox2 input {
+  margin-right: 7px;
+}
+#signUpBox2 #lunchChoice {
+  height: inherit;
+  font-size: 20px;
+}
+#signUpBox2 #officeChoice {
+  padding-top: 10%;
+  height: inherit;
+}
+.circleButton {
+  display: inline-block;
+  line-height: 100px;
+  vertical-align: bottom;
+  width: 200px;
+  height: 200px;
+  padding-top: 50px;
+  padding-left: 0px;
+  font-size: 100px !important;
+}
+.badgeCaption {
+  margin: 0;
+  margin-right: 0;
+  text-align: center;
+  padding-right: 0;
+}
+#badgesDiv {
+  background-color: #1f9af8;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: white;
+}
+#pointsDiv {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+#pointsDiv .progress {
+  height: inherit;
+}
+.nav {
+  margin-top: 1pc;
+}
+.nav .a {
+  color: white;
+}
+#matchCard {
+  text-align: center;
+  background-image: url('testpic.png');
+  background-size: cover;
+  background-position: center center;
+}
+#signupAlert {
+  margin-top: 3pc;
+  margin-bottom: 3pc;
+  text-align: center;
+}
+.card-body {
+  color: white;
+}
+#mainJumbo {
+  background-image: url('chips-dinner-fast-food-70497.jpg');
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+  margin-top: 5px;
+  padding-top: 0pc;
+  padding-bottom: 0pc;
+  height: 350px;
+  opacity: .7;
+}
+#mainJumbo .container {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+#mainJumbo .h1 {
+  text-shadow: 4px 4px #000000;
+}
+.jumbo2 {
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+.table-dark {
+  color: #fff;
+  background-color: #1f9af8;
+}
+
