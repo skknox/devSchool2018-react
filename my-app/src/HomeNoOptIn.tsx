@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './App.css';
+import Leaderboard from './Leaderboard';
 import Points from './Points';
 
 enum page{
@@ -28,8 +29,15 @@ class HomeNoOptIn extends React.Component<{}, IAppState> {
   
   public render() {
     return (
-        
-        <div><Points /></div>
+        <div>
+            <div className="alert alert-warning" id="signupAlert" role="alert">
+                You are not in today's lunch pool.
+                <button id="signUpButton" className="btn btn-primary">Dive in!</button>
+            </div>
+             <Points />
+             <Leaderboard />
+        </div>
+     
     );
   }
 }
