@@ -15,6 +15,7 @@ class HomeNoOptIn extends React.Component<IOptInProps> {
         super(props);
     }
 
+    
     public optIn = () => {
         this.props.onOptIn();
     }

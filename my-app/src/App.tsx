@@ -62,16 +62,13 @@ class App extends React.Component<{}, IAppState> {
 
   public renderNav(){
     if(this.state.currentPage !== page.signUp){
-    return<div><Nav/></div>
+    return<div><Nav showLinks = {true}/></div>
     }
-    return undefined;
+    return<div><Nav showLinks = {false}/></div>
   }
 
   public renderJumboTron(){
-    if(this.state.currentPage !== page.signUp){
       return<div><Jumbotron/></div>
-      }
-      return undefined;
   }
 
   public renderProfilePage(){
@@ -84,7 +81,6 @@ class App extends React.Component<{}, IAppState> {
   public goToProfilePage = () => {
     this.setState({currentPage: page.profile});
   }
-
   public render() {
     return (
       <div>

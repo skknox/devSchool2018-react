@@ -1,21 +1,22 @@
 import * as React from 'react';
 import './App.css';
-import {page} from './pageEnum';
-interface IAppState {
-    currentPage: page
+import { page } from './pageEnum';
+
+interface INavProps {
+    showLinks: boolean
 }
 
-class Nav extends React.Component<{}, IAppState> {
-
+class Nav extends React.Component<INavProps> {
 
     public goToHomePage = () => {
-        this.setState({currentPage: page.homeNoOptIn});
-      }
-      public goToSignUpPage = () => {
-        this.setState({currentPage: page.signUp});
-      }
+        this.setState({ currentPage: page.homeNoOptIn });
+    }
+    public goToSignUpPage = () => {
+        this.setState({ currentPage: page.signUp });
+    }
 
     public render() {
+        if (this.props.showLinks === true) {
             return (
 
                 <div className="container">
@@ -33,9 +34,18 @@ class Nav extends React.Component<{}, IAppState> {
                         </li>
                     </ul>
                 </div>
-            );
+            )
+        }
+        return (
+            <div>
+                <br /><br />
+            </div>
+
+        );
     }
+
 }
+
 
 export default Nav;
 
