@@ -35,8 +35,10 @@ class App extends React.Component<{}, IAppState> {
     this.setState({currentPage: page.homeOptingIn});
   }
   public onOptedIn = () => {
-    this.setState({currentPage: page.homeOptedIn});
+    this.setState({currentPage: page.homeOptedIn})
+    pool.push(this.state.currentUser);
   }
+
   public goToProfile = () => {
     this.setState({currentPage: page.profile});
   }
@@ -47,7 +49,10 @@ class App extends React.Component<{}, IAppState> {
     }else if(this.state.currentPage === page.homeOptingIn){
       return <div><HomeOptingIn onOptedIn = {this.onOptedIn} /></div>
     }else if(this.state.currentPage === page.homeOptedIn){
-      return <div><HomeOptedIn goToProfile = {this.goToProfile}/></div>
+      if (pool.length>1){
+      return <div><HomeOptedIn goToProfile = {this.goToProfile} matchedUser = {pool[0]}/></div>
+      }
+      return <div><HomeOptedIn goToProfile = {this.goToProfile} matchedUser = {undefined}/></div>
     }else{
       return undefined;
     }
