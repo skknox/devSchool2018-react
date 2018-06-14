@@ -8,8 +8,12 @@ interface INavProps {
 
 class Nav extends React.Component<INavProps> {
 
+    constructor(props: any) {
+        super(props);
+     
+    }
     public goToHomePage = () => {
-        this.setState({ currentPage: page.homeNoOptIn });
+       // this.props.goToHomePage();
     }
     public goToSignUpPage = () => {
         this.setState({ currentPage: page.signUp });

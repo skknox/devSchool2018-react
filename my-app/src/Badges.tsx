@@ -1,20 +1,8 @@
 import * as React from 'react';
 import './App.css';
 
-enum page {
-    homeNoOptIn,
-    homeOptingIn,
-    homeOptedIn,
-    signUp,
-    login,
-    profile
-}
 
-interface IAppState {
-    currentPage: page
-}
-
-class Badges extends React.Component<{}, IAppState> {
+class Badges extends React.Component {
 
     public render() {
         return (

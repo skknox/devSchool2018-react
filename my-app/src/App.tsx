@@ -6,7 +6,9 @@ import HomeOptingIn from './HomeOptingIn';
 import Jumbotron from './Jumbotron';
 import Nav from './Nav';
 import {page} from './pageEnum';
+import Profile from './Profile';
 import SignUp from './SignUp';
+
 
 interface IAppState{
   currentPage: page
@@ -21,14 +23,14 @@ class App extends React.Component<{}, IAppState> {
     }
   }
 
-
-
-
   public onOptIn = () => {
     this.setState({currentPage: page.homeOptingIn});
   }
   public onOptedIn = () => {
     this.setState({currentPage: page.homeOptedIn});
+  }
+  public goToProfile = () => {
+    this.setState({currentPage: page.profile});
   }
 
   public renderHomePage(){
@@ -37,7 +39,7 @@ class App extends React.Component<{}, IAppState> {
     }else if(this.state.currentPage === page.homeOptingIn){
       return <div><HomeOptingIn onOptedIn = {this.onOptedIn} /></div>
     }else if(this.state.currentPage === page.homeOptedIn){
-      return <div><HomeOptedIn /></div>
+      return <div><HomeOptedIn goToProfile = {this.goToProfile}/></div>
     }else{
       return undefined;
     }
@@ -73,14 +75,12 @@ class App extends React.Component<{}, IAppState> {
 
   public renderProfilePage(){
     if(this.state.currentPage === page.profile){
-      return <div>Profile</div>
+      return <div><Profile /></div>
     }
     return undefined;
   }
 
-  public goToProfilePage = () => {
-    this.setState({currentPage: page.profile});
-  }
+
   public render() {
     return (
       <div>

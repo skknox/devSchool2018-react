@@ -24,10 +24,12 @@ class HomeNoOptIn extends React.Component<IOptInProps> {
        
             return (
                 <div className = "container">
-                    <div className="alert alert-warning" id="signupAlert" role="alert">
-                        You are not in today's lunch pool.
-                    <button onClick={this.optIn} id="signUpButton" className="btn btn-primary">Dive in!</button>
-                    </div>
+                   
+                        <div className="alert alert-warning row" id="signupAlert" role="alert">
+                            <h5 className="col-sm-10">You are not in today's lunch pool.</h5>
+                            <button onClick={this.optIn} id="signUpButton" className="btn btn-primary col-sm-2">Dive in!</button>
+                        </div>
+                    
                 </div>
             )
         
