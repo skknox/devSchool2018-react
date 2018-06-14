@@ -25,6 +25,8 @@ class HomeNoOptIn extends React.Component<{}, IAppState> {
             currentPage: page.homeNoOptIn
         }
     }
+
+    
     public optIn = () => {
         this.setState({currentPage: page.homeOptingIn});
     }
