@@ -29,7 +29,7 @@ class HomeOptedIn extends React.Component<{}, IAppState> {
     public goToMatchProfile = () => {
         this.setState({currentPage: page.profile});
     }
-
+   
   public renderMatch(){
     if (this.state.currentPage === page.homeOptedIn) {
         return (
