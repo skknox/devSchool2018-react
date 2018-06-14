@@ -4,34 +4,23 @@ import Badges from './Badges';
 import Leaderboard from './Leaderboard';
 import Points from './Points';
 
-enum page {
-    homeNoOptIn,
-    homeOptingIn,
-    homeOptedIn,
-    signUp,
-    login,
-    profile
+interface IOptedIn {
+    goToProfile: () => void
 }
 
-interface IAppState {
-    currentPage: page
-}
-
-class HomeOptedIn extends React.Component<{}, IAppState> {
+class HomeOptedIn extends React.Component<IOptedIn> {
 
     constructor(props: any) {
         super(props);
-        this.state = {
-            currentPage: page.homeOptedIn
-        }
+        
     }
     
     public goToMatchProfile = () => {
-        this.setState({currentPage: page.profile});
+        this.props.goToProfile();
     }
    
   public renderMatch(){
-    if (this.state.currentPage === page.homeOptedIn) {
+    
         return (
             <div className="container">
                 <div className="row" id="matchInfo">
@@ -51,8 +40,6 @@ class HomeOptedIn extends React.Component<{}, IAppState> {
                 </div>
             </div>
         )
-    }
-    return undefined;
   }
 
   public render() {
