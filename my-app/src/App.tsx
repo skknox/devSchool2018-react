@@ -81,7 +81,7 @@ class App extends React.Component<{}, IAppState> {
   }
 
   public addDummyUser(){
-    pool.push(new User("test", Office.atlanta,"email",Cohort.C1))
+    pool.push(new User("Finneus Dolphin", Office.atlanta,"dolphinschool@gmail.com","this is a fun fact", Cohort.C1))
   }
 
   public goToProfilePage = () => {
