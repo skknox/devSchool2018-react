@@ -16,7 +16,7 @@ class App extends React.Component<{}, IAppState> {
   constructor(props:any){
     super(props);
     this.state = {
-      currentPage: page.homeNoOptIn
+      currentPage: page.signUp
     }
   }
 
@@ -51,9 +51,13 @@ class App extends React.Component<{}, IAppState> {
     return undefined;
   }
 
+  public onSignUp = () => {
+    this.setState({currentPage: page.homeNoOptIn});
+  }
+  
   public renderSignUpPage(){
     if(this.state.currentPage === page.signUp){
-      return <div><SignUp/></div>
+      return <div><SignUp onSignUp = {this.onSignUp}/></div>
     }
     return undefined;
   }
@@ -65,6 +69,7 @@ class App extends React.Component<{}, IAppState> {
   public render() {
     return (
       <div>
+        {this.state.currentPage}
         {this.renderNav()}
         {this.renderJumboTron()}
         {this.renderHomePage()}
