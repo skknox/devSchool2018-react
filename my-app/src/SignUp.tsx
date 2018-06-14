@@ -2,7 +2,7 @@ import * as React from 'react';
 import './App.css';
 
 interface ISignUpProps {
-    onSignup: () => void
+    onSignUp: () => void
 }
 
 class SignUp extends React.Component<ISignUpProps> {
@@ -11,7 +11,7 @@ class SignUp extends React.Component<ISignUpProps> {
     }
 
     public Login = () => {
-        this.props.onSignup()
+        this.props.onSignUp()
     }
 
     public render() {
