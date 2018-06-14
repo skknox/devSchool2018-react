@@ -1,14 +1,55 @@
 import * as React from 'react';
 import './App.css';
+// import {Cohort} from './Cohort';
+// import {Office} from './Office';
+import {User} from './User';
+
 
 interface ISignUpProps {
-    onSignUp: () => void
+    onSignUp: () => void,
+    currentUser: User
 }
 
+/*      this.name = name;
+        this.office = office;
+        this.email = email;
+        this.funFact = funFact;
+        this.cohort = cohort;
+*/
+
 class SignUp extends React.Component<ISignUpProps> {
+
+
     constructor(props: any) {
         super(props);
+        this.state = this.props.currentUser;
+        
+      /*  {
+            
+            cohort: undefined,
+            email: "",
+            funFact: "",
+            name: "",
+            office: undefined
+
+        }*/
+
+        this.handleEmailChange = this.handleEmailChange.bind(this);
     }
+    
+    public handleNameChange(event:any) {
+        this.props.currentUser.name = event.target.value;
+    }
+
+    public handleEmailChange(event:any){
+        this.props.currentUser.email = event.target.value;
+    }
+
+    public handleFunFactChange(event:any){
+        this.props.currentUser.funFact = event.target.value;
+    }
+
+    
 
     public Login = () => {
         this.props.onSignUp()
@@ -24,11 +65,11 @@ class SignUp extends React.Component<ISignUpProps> {
                                 <div className="form-row">
                                     <div className="form-group col-md-5">
                                         <label htmlFor="inputName">Name</label>
-                                        <input type="text" className="form-control" id="inputName" placeholder="Name" />
+                                        <input type="text" className="form-control" id="inputName" placeholder="Name"  onChange={this.handleNameChange} />
                                     </div>
                                     <div className="form-group col-md-5 offset-md-2">
                                         <label htmlFor="inputEmail4">Email</label>
-                                        <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
+                                        <input type="email" className="form-control" id="inputEmail4" placeholder="Email" onChange={this.handleEmailChange} />
                                     </div>
 
                                     <div className="form-group col-md-5">
@@ -61,7 +102,7 @@ class SignUp extends React.Component<ISignUpProps> {
                                 <div className="form-row">
                                     <div className="form-group col-md-7">
                                         <label htmlFor="funFact">Fun Fact</label>
-                                        <input type="text" className="form-control" id="funFact" placeholder="Fun Fact" />
+                                        <input type="text" className="form-control" id="funFact" placeholder="Fun Fact" onChange={this.handleFunFactChange} />
 
                                     </div>
                                 </div>
