@@ -21,6 +21,7 @@ class HomeNoOptIn extends React.Component<IOptingIn> {
 
     public renderChoices() {
             return (
+            <div className="container">
                 <form id="signUpBox">
                     <label htmlFor="lunchChoice">
                         <h4>Where would you like to eat today?</h4>
@@ -49,6 +50,7 @@ class HomeNoOptIn extends React.Component<IOptingIn> {
                     </div>
                     <input onClick={this.submitChoices} type="button" className="btn btn-primary" value="Submit"/>
                 </form>
+            </div>
             )
   }
 

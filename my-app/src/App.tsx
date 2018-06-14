@@ -23,7 +23,7 @@ class App extends React.Component<{}, IAppState> {
 
 
 
-  
+
   public onOptIn = () => {
     this.setState({currentPage: page.homeOptingIn});
   }
@@ -88,7 +88,6 @@ class App extends React.Component<{}, IAppState> {
   public render() {
     return (
       <div>
-        {this.state.currentPage}
         {this.renderNav()}
         {this.renderJumboTron()}
         {this.renderHomePage()}
