@@ -9,8 +9,8 @@ import Jumbotron from './Jumbotron';
 import Nav from './Nav';
 import {Office} from './Office';
 import {page} from './pageEnum';
-import Profile from './Profile';
 import {pool} from './Pool';
+import Profile from './Profile';
 import SignUp from './SignUp';
 import {User} from './User';
 
@@ -81,7 +81,7 @@ class App extends React.Component<{}, IAppState> {
   }
 
   public addDummyUser(){
-    pool.push(new User("test", Office.atlanta,"email",Cohort.C1))
+    pool.push(new User("Finneus Dolphin", Office.atlanta,"dolphinschool@gmail.com","this is a fun fact", Cohort.C1))
   }
 
   public goToProfilePage = () => {
