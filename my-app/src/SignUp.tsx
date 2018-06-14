@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
-// import {Cohort} from './Cohort';
-// import {Office} from './Office';
+import {Cohort} from './Cohort';
+import {Office} from './Office';
 import {User} from './User';
 
 
@@ -10,13 +10,6 @@ interface ISignUpProps {
     currentUser: User
 }
 
-/*      this.name = name;
-        this.office = office;
-        this.email = email;
-        this.funFact = funFact;
-        this.cohort = cohort;
-*/
-
 class SignUp extends React.Component<ISignUpProps> {
 
 
@@ -24,17 +17,12 @@ class SignUp extends React.Component<ISignUpProps> {
         super(props);
         this.state = this.props.currentUser;
         
-      /*  {
-            
-            cohort: undefined,
-            email: "",
-            funFact: "",
-            name: "",
-            office: undefined
-
-        }*/
-
+        
+        this.handleNameChange = this.handleNameChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handleOfficeChange = this.handleOfficeChange.bind(this);
+        this.handleFunFactChange = this.handleFunFactChange.bind(this);
+        this.handleCohortChange = this.handleCohortChange.bind(this);
     }
     
     public handleNameChange(event:any) {
@@ -45,8 +33,16 @@ class SignUp extends React.Component<ISignUpProps> {
         this.props.currentUser.email = event.target.value;
     }
 
+    public handleOfficeChange(event:any){
+        this.props.currentUser.office = event.target.value;
+    }
+
     public handleFunFactChange(event:any){
         this.props.currentUser.funFact = event.target.value;
+    }
+
+    public handleCohortChange(event:any){
+        this.props.currentUser.cohort = event.target.value;
     }
 
     
@@ -85,16 +81,23 @@ class SignUp extends React.Component<ISignUpProps> {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <label htmlFor="officeLocation">Office</label>
-                                        <select id="officeLocation" className="form-control">
-                                            <option>Chicago</option>
-                                            <option>Atlanta</option>
+                                        <select className="form-control" id="officeLocation" onChange={this.handleOfficeChange}>
+                                            {Object.keys(Office).map(office => (
+                                                <option key={office} value={office}>
+                                                    {office}
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
                                     <div className="form-group col-md-3 offset-md-5">
                                         <label htmlFor="cohortLevel">Cohort Level</label>
-                                        <select id="cohortLevel" className="form-control">
-                                            <option>C1</option>
-                                            <option>C2</option>
+                                        
+                                        <select className="form-control" id="cohortLevel" onChange={this.handleCohortChange}>
+                                            {Object.keys(Cohort).map(cohort => (
+                                                <option key={cohort} value={cohort}>
+                                                    {cohort}
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
                                 </div>
