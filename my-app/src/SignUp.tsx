@@ -20,7 +20,7 @@ class SignUp extends React.Component<ISignUpProps> {
                 <div className="container">
                     <div style={{paddingTop: "3%"}}>
                         <div style={{paddingBottom: "3%" }}>
-                            <form>
+                            <form id="signUpForm">
                                 <div className="form-row">
                                     <div className="form-group col-md-5">
                                         <label htmlFor="inputName">Name</label>
