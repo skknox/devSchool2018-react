@@ -18,7 +18,7 @@ class HomeOptedIn extends React.Component<IOptedIn> {
     public goToMatchProfile = () => {
         this.props.goToProfile();
     }
-
+   
   public renderMatch(){
     
         return (
