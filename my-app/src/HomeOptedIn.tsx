@@ -33,17 +33,19 @@ class HomeOptedIn extends React.Component<{}, IAppState> {
   public renderMatch(){
     if (this.state.currentPage === page.homeOptedIn) {
         return (
-            <div className="row" id="matchInfo">
-                <div className="col-sm-12">
-                    <div id="matchCard" className="card">
-                        <div className="card-body">
+            <div className="container">
+                <div className="row" id="matchInfo">
+                    <div className="col-sm-12">
+                        <div id="matchCard" className="card">
+                            <div className="card-body">
 
-                            <p className="card-text">
-                                <h1>Your partner today is:</h1>
-                                <h2> Finneus Dolphin</h2>
-                            </p>
-                            <a onClick={this.goToMatchProfile} href="#" className="btn btn-primary">Profile</a>
-                            <a href="https://theocean.parivedasolutions.com/#/people/sydney-knox/career" className="btn btn-secondary">Ocean</a>
+                                <p className="card-text">
+                                    <h1>Your partner today is:</h1>
+                                    <h2> Finneus Dolphin</h2>
+                                </p>
+                                <a onClick={this.goToMatchProfile} href="#" className="btn btn-primary">Profile</a>
+                                <a href="https://theocean.parivedasolutions.com/#/people/sydney-knox/career" className="btn btn-secondary">Ocean</a>
+                            </div>
                         </div>
                     </div>
                 </div>
