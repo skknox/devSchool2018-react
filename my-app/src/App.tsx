@@ -9,15 +9,16 @@ import Jumbotron from './Jumbotron';
 import Nav from './Nav';
 import {Office} from './Office';
 import {page} from './pageEnum';
-import Profile from './Profile';
 import {pool} from './Pool';
+import Profile from './Profile';
 import SignUp from './SignUp';
 import {User} from './User';
 
 
 
 interface IAppState{
-  currentPage: page
+  currentPage: page,
+  currentUser: User
 }
 
 class App extends React.Component<{}, IAppState> {
@@ -25,7 +26,8 @@ class App extends React.Component<{}, IAppState> {
   constructor(props:any){
     super(props);
     this.state = {
-      currentPage: page.signUp
+      currentPage: page.signUp,
+      currentUser: new User("",Office.chicago,"","",Cohort.C1)
     }
   }
 
@@ -57,7 +59,7 @@ class App extends React.Component<{}, IAppState> {
   
   public renderSignUpPage(){
     if(this.state.currentPage === page.signUp){
-      return <div><SignUp onSignUp = {this.onSignUp}/></div>
+      return <div><SignUp onSignUp = {this.onSignUp} currentUser = {this.state.currentUser}  /></div>
     }
     return undefined;
   }
@@ -81,7 +83,7 @@ class App extends React.Component<{}, IAppState> {
   }
 
   public addDummyUser(){
-    pool.push(new User("test", Office.atlanta,"email",Cohort.C1))
+    pool.push(new User("Finneus Dolphin", Office.atlanta,"dolphinschool@gmail.com","this is a fun fact", Cohort.C1))
   }
 
   public goToProfilePage = () => {
