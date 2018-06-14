@@ -1,12 +1,18 @@
 import * as React from 'react';
 import './App.css';
+
+import {Cohort} from './Cohort';
 import HomeNoOptIn from './HomeNoOptIn';
 import HomeOptedIn from './HomeOptedIn';
 import HomeOptingIn from './HomeOptingIn';
 import Jumbotron from './Jumbotron';
 import Nav from './Nav';
+import {Office} from './Office';
 import {page} from './pageEnum';
+import {pool} from './Pool';
 import SignUp from './SignUp';
+import {User} from './User';
+
 
 interface IAppState{
   currentPage: page
@@ -20,9 +26,6 @@ class App extends React.Component<{}, IAppState> {
       currentPage: page.signUp
     }
   }
-
-
-
 
   public onOptIn = () => {
     this.setState({currentPage: page.homeOptingIn});
@@ -43,9 +46,6 @@ class App extends React.Component<{}, IAppState> {
     }
   }
 
-
-
-
   public onSignUp = () => {
     this.setState({currentPage: page.homeNoOptIn});
   }
@@ -56,9 +56,6 @@ class App extends React.Component<{}, IAppState> {
     }
     return undefined;
   }
-
-
-
 
   public renderNav(){
     if(this.state.currentPage !== page.signUp){
@@ -76,6 +73,10 @@ class App extends React.Component<{}, IAppState> {
       return <div>Profile</div>
     }
     return undefined;
+  }
+
+  public addDummyUser(){
+    pool.push(new User("test", Office.atlanta,"email",Cohort.C1))
   }
 
   public goToProfilePage = () => {
