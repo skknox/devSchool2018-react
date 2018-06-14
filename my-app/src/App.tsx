@@ -1,17 +1,11 @@
 import * as React from 'react';
 import './App.css';
 import HomeNoOptIn from './HomeNoOptIn';
+import HomeOptedIn from './HomeOptedIn';
 import Jumbotron from './Jumbotron';
 import Nav from './Nav';
-
-enum page{
-  homeNoOptIn,
-  homeOptingIn,
-  homeOptedIn,
-  signUp,
-  login,
-  profile
-}
+import {page} from './pageEnum';
+import SignUp from './SignUp';
 
 interface IAppState{
   currentPage: page
@@ -30,7 +24,24 @@ class App extends React.Component<{}, IAppState> {
     if(this.state.currentPage === page.homeNoOptIn){
       return <div><HomeNoOptIn /></div>
     }
+    if(this.state.currentPage === page.homeOptedIn){
+    return <div><HomeOptedIn /></div>
+    }
     return undefined;
+  }
+
+  public renderNav(){
+    if(this.state.currentPage !== page.signUp){
+    return<div><Nav/></div>
+    }
+    return undefined;
+  }
+
+  public renderJumboTron(){
+    if(this.state.currentPage !== page.signUp){
+      return<div><Jumbotron/></div>
+      }
+      return undefined;
   }
 
   public renderProfilePage(){
@@ -42,7 +53,7 @@ class App extends React.Component<{}, IAppState> {
 
   public renderSignUpPage(){
     if(this.state.currentPage === page.signUp){
-      return <div>Signup</div>
+      return <div><SignUp/></div>
     }
     return undefined;
   }
@@ -54,8 +65,8 @@ class App extends React.Component<{}, IAppState> {
   public render() {
     return (
       <div>
-        <Nav />
-        <Jumbotron />
+        {this.renderNav()}
+        {this.renderJumboTron()}
         {this.renderHomePage()}
         {this.renderProfilePage()}
         {this.renderSignUpPage()}
