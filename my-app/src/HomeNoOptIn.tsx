@@ -21,7 +21,6 @@ class HomeNoOptIn extends React.Component<IOptInProps> {
     }
 
     public renderAlert() {
-       
             return (
                 <div className = "container">
                    
