@@ -3,9 +3,12 @@ import './App.css';
 import Badges from './Badges';
 import Leaderboard from './Leaderboard';
 import Points from './Points';
+import {User} from './User';
 
-
-class Profile extends React.Component {
+interface IProfile {
+    matchedUser: User;
+}
+class Profile extends React.Component<IProfile> {
 
     public renderInfo() {
        
@@ -15,10 +18,10 @@ class Profile extends React.Component {
                 <img src="./Finneus.jpg" style={{borderRadius:"50%",height:"200px",width:"200px"}}/>
             </div>
             <div className="col-sm-9">
-                <h2><u>Finneus Dolphin :    C1</u></h2>
-                <h4>Location: Chicago</h4>
-                <h4>Email: f.dolphin@parivedasolutions.com</h4>
-                <h6>My fun fact is that I'm a dolphin who codes!</h6>
+                <h2><u>{this.props.matchedUser.name} : {this.props.matchedUser.cohort}</u></h2>
+                <h4>Location: {this.props.matchedUser.office}</h4>
+                <h4>Email: {this.props.matchedUser.email}</h4>
+                <h6>{this.props.matchedUser.funFact}</h6>
             </div>
         </div>
         )

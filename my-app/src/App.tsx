@@ -88,13 +88,13 @@ class App extends React.Component<{}, IAppState> {
 
   public renderProfilePage() {
     if (this.state.currentPage === page.profile) {
-      return <div><Profile /></div>
+      return <div><Profile matchedUser = {pool[0]} /></div>
     }
     return undefined;
   }
 
   public addDummyUser() {
-    pool.push(new User("Sydney Knox", Office.chicago, "dolphinschool@gmail.com", "this is a fun fact", Cohort.C1))
+    pool.push(new User("Sydney Knox", Office.chicago, "devchool@gmail.com", "This is a fun fact pulled from a object", Cohort.C1))
   }
 
   public goToProfilePage = () => {
