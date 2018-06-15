@@ -45,6 +45,10 @@ class App extends React.Component<{}, IAppState> {
     this.setState({ currentPage: page.profile });
   }
 
+  public goToHome = () => {
+    this.setState({currentPage: page.homeOptedIn});
+  }
+  
   public renderHomePage() {
     if (this.state.currentPage === page.homeNoOptIn) {
       return <div><HomeNoOptIn onOptIn={this.onOptIn} /></div>
@@ -63,19 +67,23 @@ class App extends React.Component<{}, IAppState> {
   public onSignUp = () => {
     this.setState({ currentPage: page.homeNoOptIn });
   }
-
-  public renderSignUpPage() {
-    if (this.state.currentPage === page.signUp) {
-      return <div><SignUp onSignUp={this.onSignUp} currentUser={this.state.currentUser} /></div>
+  
+  public logout = () => {
+    this.setState({currentPage: page.signUp});
+  }
+  
+  public renderSignUpPage(){
+    if(this.state.currentPage === page.signUp){
+      return <div><SignUp onSignUp = {this.onSignUp} currentUser = {this.state.currentUser}  /></div>
     }
     return undefined;
   }
 
-  public renderNav() {
-    if (this.state.currentPage !== page.signUp) {
-      return <div><Nav showLinks={true} /></div>
+  public renderNav(){
+    if(this.state.currentPage !== page.signUp){
+    return<div><Nav showLinks = {true} goToHomePage = {this.goToHome} goToSignUp = {this.logout}/></div>
     }
-    return <div><Nav showLinks={false} /></div>
+    return<div><Nav showLinks = {false} goToHomePage = {this.goToHome} goToSignUp ={this.logout}/></div>
   }
 
   public renderJumboTron() {
