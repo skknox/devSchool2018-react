@@ -30,6 +30,11 @@ body {
   font-size: 20px;
   text-align:center;
 }
+
+.choices-container {
+  padding:0;
+}
+
 #signUpBox2 #officeChoice {
   padding-top: 10%;
   height: inherit;
@@ -64,9 +69,7 @@ body {
   padding-bottom: 25px;
   text-align: center;
 }
-#pointsDiv .progress {
-  
-}
+
 .nav {
   margin-top: 1pc;
 }
@@ -116,7 +119,10 @@ body {
   z-index: -2;
 }
 .table-dark {
-  color: #fff;
-  background-color: #1f9af8;
+  color: #4e4e4e;
+  background-color: #d2f0fa00;
 }
 
+.leaderboard-container {
+  padding:0;
+}

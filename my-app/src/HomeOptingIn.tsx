@@ -21,7 +21,7 @@ class HomeNoOptIn extends React.Component<IOptingIn> {
 
     public renderChoices() {
             return (
-            <div className="container">
+            <div className="container choices-container">
                 <form id="signUpBox">
                     <label htmlFor="lunchChoice">
                         <h4>Where would you like to eat today?</h4>
