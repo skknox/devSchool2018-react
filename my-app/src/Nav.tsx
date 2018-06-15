@@ -1,22 +1,23 @@
 import * as React from 'react';
 import './App.css';
-import { page } from './pageEnum';
 
 interface INavProps {
-    showLinks: boolean
+    showLinks: boolean,
+    goToHomePage: () => void,
+    goToSignUp: () => void
 }
 
 class Nav extends React.Component<INavProps> {
 
     constructor(props: any) {
         super(props);
-     
     }
+
     public goToHomePage = () => {
-       // this.props.goToHomePage();
+        this.props.goToHomePage();
     }
     public goToSignUpPage = () => {
-        this.setState({ currentPage: page.signUp });
+        this.props.goToSignUp();
     }
 
     public render() {
