@@ -1,64 +1,71 @@
 import * as React from 'react';
 import './App.css';
 
-import {Cohort} from './Cohort';
+import { Cohort } from './Cohort';
 import HomeNoOptIn from './HomeNoOptIn';
 import HomeOptedIn from './HomeOptedIn';
 import HomeOptingIn from './HomeOptingIn';
 import Jumbotron from './Jumbotron';
 import Nav from './Nav';
-import {Office} from './Office';
-import {page} from './pageEnum';
-import {pool} from './Pool';
+import { Office } from './Office';
+import { page } from './pageEnum';
+import { pool } from './Pool';
 import Profile from './Profile';
 import SignUp from './SignUp';
-import {User} from './User';
+import { User } from './User';
 
 
 
-interface IAppState{
+interface IAppState {
   currentPage: page,
   currentUser: User
 }
 
 class App extends React.Component<{}, IAppState> {
-  
-  constructor(props:any){
+
+  constructor(props: any) {
     super(props);
     this.state = {
       currentPage: page.signUp,
-      currentUser: new User("",Office.chicago,"","",Cohort.C1)
+      currentUser: new User("", Office.chicago, "", "", Cohort.C1)
     }
   }
 
   public onOptIn = () => {
-    this.setState({currentPage: page.homeOptingIn});
+    this.setState({ currentPage: page.homeOptingIn });
   }
   public onOptedIn = () => {
-    this.setState({currentPage: page.homeOptedIn});
+    this.setState({ currentPage: page.homeOptedIn })
+    this.addDummyUser();
+    pool.push(this.state.currentUser);
+
   }
+
   public goToProfile = () => {
-    this.setState({currentPage: page.profile});
+    this.setState({ currentPage: page.profile });
   }
 
   public goToHome = () => {
     this.setState({currentPage: page.homeOptedIn});
   }
-
-  public renderHomePage = () =>{
-    if(this.state.currentPage === page.homeNoOptIn){
-      return <div><HomeNoOptIn onOptIn = {this.onOptIn}/></div>
-    }else if(this.state.currentPage === page.homeOptingIn){
-      return <div><HomeOptingIn onOptedIn = {this.onOptedIn} /></div>
-    }else if(this.state.currentPage === page.homeOptedIn){
-      return <div><HomeOptedIn goToProfile = {this.goToProfile}/></div>
-    }else{
+  
+  public renderHomePage() {
+    if (this.state.currentPage === page.homeNoOptIn) {
+      return <div><HomeNoOptIn onOptIn={this.onOptIn} /></div>
+    } else if (this.state.currentPage === page.homeOptingIn) {
+      return <div><HomeOptingIn onOptedIn={this.onOptedIn} /></div>
+    } else if (this.state.currentPage === page.homeOptedIn) {
+      if (pool.length > 1) {
+        return <div><HomeOptedIn goToProfile={this.goToProfile} matchedUser={pool[0]} /></div>
+      }
+      return <div><HomeOptedIn goToProfile={this.goToProfile} matchedUser={undefined} /></div>
+    } else {
       return undefined;
     }
   }
 
   public onSignUp = () => {
-    this.setState({currentPage: page.homeNoOptIn});
+    this.setState({ currentPage: page.homeNoOptIn });
   }
   
   public logout = () => {
@@ -79,23 +86,23 @@ class App extends React.Component<{}, IAppState> {
     return<div><Nav showLinks = {false} goToHomePage = {this.goToHome} goToSignUp ={this.logout}/></div>
   }
 
-  public renderJumboTron(){
-      return<div><Jumbotron/></div>
+  public renderJumboTron() {
+    return <div><Jumbotron /></div>
   }
 
-  public renderProfilePage(){
-    if(this.state.currentPage === page.profile){
+  public renderProfilePage() {
+    if (this.state.currentPage === page.profile) {
       return <div><Profile /></div>
     }
     return undefined;
   }
 
-  public addDummyUser(){
-    pool.push(new User("Finneus Dolphin", Office.atlanta,"dolphinschool@gmail.com","this is a fun fact", Cohort.C1))
+  public addDummyUser() {
+    pool.push(new User("Sydney Knox", Office.chicago, "dolphinschool@gmail.com", "this is a fun fact", Cohort.C1))
   }
 
   public goToProfilePage = () => {
-    this.setState({currentPage: page.profile});
+    this.setState({ currentPage: page.profile });
   }
   public render() {
     return (

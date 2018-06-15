@@ -3,9 +3,11 @@ import './App.css';
 import Badges from './Badges';
 import Leaderboard from './Leaderboard';
 import Points from './Points';
+import {User} from './User';
 
 interface IOptedIn {
     goToProfile: () => void
+    matchedUser?: User;
 }
 
 class HomeOptedIn extends React.Component<IOptedIn> {
@@ -20,7 +22,7 @@ class HomeOptedIn extends React.Component<IOptedIn> {
     }
    
   public renderMatch(){
-    
+    if(this.props.matchedUser !== undefined){
         return (
             <div className="container">
                 <div className="row" id="matchInfo">
@@ -30,7 +32,7 @@ class HomeOptedIn extends React.Component<IOptedIn> {
 
                                 <p className="card-text">
                                     <h1>Your partner today is:</h1>
-                                    <h2> Finneus Dolphin</h2>
+                                    <h2>{this.props.matchedUser.name}</h2>
                                 </p>
                                 <a onClick={this.goToMatchProfile} href="#" className="btn btn-primary">Profile</a>
                                 <a href="https://theocean.parivedasolutions.com/#/people/sydney-knox/career" className="btn btn-secondary">Ocean</a>
@@ -39,7 +41,8 @@ class HomeOptedIn extends React.Component<IOptedIn> {
                     </div>
                 </div>
             </div>
-        )
+        )}
+        return undefined
   }
 
   public render() {
