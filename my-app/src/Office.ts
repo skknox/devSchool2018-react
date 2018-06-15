@@ -1,7 +1,7 @@
 export enum Office{
     chicago= "Chicago",
     atlanta= "Atlanta",
-    dallas="Dalla",
+    dallas="Dallas",
     houston="Houston",
     philadelphia="Philadelphia",
     newyork="New York",
