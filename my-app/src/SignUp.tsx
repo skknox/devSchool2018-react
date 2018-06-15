@@ -79,20 +79,22 @@ class SignUp extends React.Component<ISignUpProps> {
                                 </div>
 
                                 <div className="form-row">
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group col-md-5">
                                         <label htmlFor="officeLocation">Office</label>
                                         <select className="form-control" id="officeLocation" onChange={this.handleOfficeChange}>
+                                            <option value={undefined} >Select...</option>
                                             {Object.keys(Office).map(office => (
-                                                <option key={office} value={office}>
-                                                    {office}
+                                                <option key={office} value={Office[office]}>
+                                                    {Office[office]}
                                                 </option>
                                             ))}
                                         </select>
                                     </div>
-                                    <div className="form-group col-md-3 offset-md-5">
+                                    <div className="form-group col-md-5 offset-md-2">
                                         <label htmlFor="cohortLevel">Cohort Level</label>
                                         
                                         <select className="form-control" id="cohortLevel" onChange={this.handleCohortChange}>
+                                            <option value={undefined} >Select...</option>
                                             {Object.keys(Cohort).map(cohort => (
                                                 <option key={cohort} value={cohort}>
                                                     {cohort}
@@ -103,9 +105,9 @@ class SignUp extends React.Component<ISignUpProps> {
                                 </div>
                                 
                                 <div className="form-row">
-                                    <div className="form-group col-md-7">
+                                    <div className="form-group col-md-5">
                                         <label htmlFor="funFact">Fun Fact</label>
-                                        <input type="text" className="form-control" id="funFact" placeholder="Fun Fact" onChange={this.handleFunFactChange} />
+                                        <textarea  className="form-control" id="funFact" placeholder="Fun Fact" onChange={this.handleFunFactChange} />
 
                                     </div>
                                 </div>
