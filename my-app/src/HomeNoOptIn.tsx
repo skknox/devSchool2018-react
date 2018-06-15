@@ -26,7 +26,7 @@ class HomeNoOptIn extends React.Component<IOptInProps> {
                 <div className = "container">
                    
                         <div className="alert alert-warning row" id="signupAlert" role="alert">
-                            <h5 className="col-sm-10">You are not in today's lunch pool.</h5>
+                            <h5 className="col-sm-10 signUpAlertText">You are not in today's lunch pool.</h5>
                             <button onClick={this.optIn} id="signUpButton" className="btn btn-primary col-sm-2">Dive in!</button>
                         </div>
                     

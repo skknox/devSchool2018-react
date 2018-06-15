@@ -2,6 +2,7 @@ import * as React from 'react';
 import './App.css';
 import Badges from './Badges';
 import Leaderboard from './Leaderboard';
+import {Office} from './Office';
 import Points from './Points';
 
 interface IOptingIn {
@@ -41,11 +42,12 @@ class HomeNoOptIn extends React.Component<IOptingIn> {
                             <h4>Current Office:</h4>
                          </label>
                             <select className="form-control" id="officeChoice">
-                                <option>Chicago</option>
-                                <option>Dallas</option>
-                                <option>Atlanta</option>
-                                <option>Houston</option>
-                                <option>New York</option>
+                                <option value={undefined} >Select...</option>
+                                {Object.keys(Office).map(office => (
+                                    <option key={office} value={Office[office]}>
+                                        {Office[office]}
+                                    </option>
+                                ))}
                             </select>
                     </div>
                     <input onClick={this.submitChoices} type="button" className="btn btn-primary" value="Submit"/>
